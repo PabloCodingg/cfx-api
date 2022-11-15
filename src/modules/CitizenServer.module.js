@@ -1,6 +1,4 @@
-const axios = require('axios');
-const CfxEndpoints = require('../enum/Endpoints');
-const AxiosConfig = require('../constant/AxiosConfig');
+const CfxAPI = require('./CfxAPI');
 const CitizenServer = require('../model/CitizenServer');
 
 class CitizenServerModule {
@@ -15,7 +13,7 @@ class CitizenServerModule {
 
   async retrieve(id) {
     try {
-      const response = await axios.get(CfxEndpoints.CFX_MASTERLIST + id, AxiosConfig);
+      const response = await CfxAPI.get(CfxAPI.CFX_MASTERLIST + id);
       if (response.status !== 200) {
         throw new Error('Server not found or internal error occurred');
       }

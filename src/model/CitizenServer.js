@@ -5,7 +5,7 @@
  * @constructor
  * @public
  */
-const ElementClub = require('../enum/ElementClub');
+const ElementClub = require('../types/ElementClub');
 const validator = require('./_validator');
 
 class CitizenServer {

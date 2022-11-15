@@ -1,6 +1,4 @@
-const axios = require('axios');
-const AxiosConfig = require('../constant/AxiosConfig');
-const CfxEndpoints = require('../enum/Endpoints');
+const CfxAPI = require('./CfxAPI');
 const CfxStatus = require('../model/CfxStatus');
 
 class CfxStatusModule {
@@ -15,7 +13,7 @@ class CfxStatusModule {
 
   async retrieve() {
     try {
-      const response = await axios.get(CfxEndpoints.CFX_STATUS_SUMMARY, AxiosConfig);
+      const response = await CfxAPI.get(CfxAPI.CFX_STATUS_SUMMARY);
       if (response.status !== 200) {
         throw new Error('Error while retrieving Cfx.re status');
       }

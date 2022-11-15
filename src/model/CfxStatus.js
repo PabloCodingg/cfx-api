@@ -1,6 +1,4 @@
-const axios = require('axios');
-const AxiosConfig = require('../constant/AxiosConfig');
-const CfxEndpoints = require('../enum/Endpoints');
+const CfxAPI = require('../modules/CfxAPI');
 const validator = require('./_validator');
 
 /**
@@ -52,7 +50,7 @@ class CfxStatus {
    * @return {Promise<Array<StatusComponent>>}
    */
   async fetchComponents() {
-    const response = await axios.get(CfxEndpoints.CFX_STATUS_COMPONENTS, AxiosConfig);
+    const response = await CfxAPI.get(CfxAPI.EndPoints.CFX_STATUS_COMPONENTS);
     if (response.status !== 200) {
       throw new Error('Cannot retrieve Cfx.re components status');
     }
